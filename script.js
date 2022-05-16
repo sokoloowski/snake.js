@@ -10,6 +10,7 @@ color = {
     yellow: "#f0db4f",
     black: "#323330",
     red: "#f44336",
+    green: "#4caf50",
 };
 
 let board = {
@@ -42,7 +43,7 @@ function clearCanvas() {
 
 function drawSnake() {
     snake.forEach((snakePart) => {
-        gameboardCtx.strokeStyle = color.yellow;
+        gameboardCtx.strokeStyle = color.green;
         gameboardCtx.strokeRect(snakePart.x, snakePart.y, 10, 10);
     });
 }

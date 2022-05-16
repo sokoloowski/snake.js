@@ -55,9 +55,7 @@ function moveSnake() {
         y: (snake[0].y + dy + board.height) % board.height,
     };
     if (inSnake(head.x, head.y)) {
-        clearInterval(movement);
-        alert("You lose!");
-        lost = true;
+        gameOver();
     }
     if (head.x == apple.x && head.y == apple.y) {
         placeApple();
@@ -119,6 +117,17 @@ document.addEventListener("keydown", (event) => {
         paused = !paused;
     }
 });
+
+function gameOver() {
+    clearInterval(movement);
+    lost = true;
+    gameboardCtx.fillStyle = color.red;
+    gameboardCtx.font = "30px Arial";
+    gameboardCtx.textAlign = "center";
+    gameboardCtx.fillText("Game over!", board.width / 2, 50);
+    gameboardCtx.font = "20px Arial";
+    gameboardCtx.fillText("Reload page to try again", board.width / 2, 80);
+}
 
 clearCanvas();
 gameboardCtx.fillStyle = color.yellow;
